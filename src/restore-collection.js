@@ -22,22 +22,20 @@ var doRestoreCollection = async ({
     if (!con) {
         serverConnection = (await MongoClient.connect(
             uri,
-            { useUnifiedTopology: true}
+            { useUnifiedTopology: true }
         ));
     }
     else {
         serverConnection = con;
     }
 
-    var dbCollection = (
-        serverConnection
-        .db(database)
-        .collection(collection)
-    );
+    const db = serverConnection.db(database);
+    await db.createCollection(collection)
+    var dbCollection = db.collection(collection);
     if (clean) {
         await dbCollection.deleteMany({});
     }
-    
+
     // FIXME: this will blow up on large collections
     var buffer = fs.readFileSync(from);
     var index = 0,
@@ -55,7 +53,8 @@ var doRestoreCollection = async ({
         );
     }
 
-    await dbCollection.insertMany(documents);
+    if (documents.length !== 0)
+        await dbCollection.insertMany(documents);
 
     if (!con) {
         serverConnection.close()
