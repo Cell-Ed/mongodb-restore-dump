@@ -1,15 +1,15 @@
-# @cdxoo/mongodb-restore
+# mongodb-restore-dump
 
 Simple module to restore MongoDB dumps from BSON files.
 
 ## Installation
 
-    npm install --save @cdxoo/mongodb-restore
+    npm install --save mongodb-restore-dump
     
 ## Usage
 
-```javascript
-const restore = require('@cdxoo/mongodb-restore'),
+```js
+const restore = require('mongodb-restore-dump'),
       uri = 'mongodb://127.0.0.1:27001/';
 
 // restore multi-database dump
@@ -35,7 +35,7 @@ await restore.collection({
 ```
 
 ## Parameters
-```javascript
+```js
 await restore.dump({
     con: await MongoClient.connect(uri),
                   // An existing mongodb connection to use.
@@ -64,7 +64,7 @@ await retore.database({
                   // to restore
 });
 
-await retore.database({
+await retore.collection({
     con, uri, clean, database, // same as in database()
     
     collection: 'my-collection-name',
