@@ -1,6 +1,6 @@
 {
   "name": "mongodb-restore-dump",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "restore mongodb bson dumps",
   "repository": {
     "url": "https://github.com/egorshulga/mongodb-restore-dump"
