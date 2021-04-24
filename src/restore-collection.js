@@ -30,7 +30,9 @@ var doRestoreCollection = async ({
     }
 
     const db = serverConnection.db(database);
-    await db.createCollection(collection)
+    if (!await db.collection(collection)) {
+        await db.createCollection(collection);
+    }
     var dbCollection = db.collection(collection);
     if (clean) {
         await dbCollection.deleteMany({});

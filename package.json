@@ -1,6 +1,6 @@
 {
-  "name": "mongodb-restore-dump",
-  "version": "1.0.1",
+  "name": "@celled/mongodb-restore-dump",
+  "version": "1.0.2",
   "description": "restore mongodb bson dumps",
   "repository": {
     "url": "https://github.com/egorshulga/mongodb-restore-dump"
@@ -14,7 +14,7 @@
     "test": "npx mocha --bail src/*.spec.js",
     "release": "release-it"
   },
-  "author": "Egor Shulga",
+  "author": "santi@cell-ed.com",
   "license": "MIT",
   "keywords": [
     "mongo",
